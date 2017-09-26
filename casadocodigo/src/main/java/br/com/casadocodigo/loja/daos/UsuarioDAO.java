@@ -19,7 +19,7 @@ public class UsuarioDAO implements UserDetailsService{
 	private EntityManager manager;
 	
 	public Usuario loadUserByUsername(String email) throws UsernameNotFoundException {
-		List<Usuario> usuarios = manager.createQuery("select u from Usuario where u.email = :email",
+		List<Usuario> usuarios = manager.createQuery("select u from Usuario u where u.email = :email",
 				Usuario.class)
 		.setParameter("email", email)
 		.getResultList();
